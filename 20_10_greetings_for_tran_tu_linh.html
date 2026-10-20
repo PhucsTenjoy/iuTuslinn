@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc mừng 20/10 Vợ Yêu Trần Tú Linh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .font-romantic {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Falling Hearts Animation */
+        .falling-element {
+            position: fixed;
+            top: -10%;
+            z-index: 0;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite, sway ease-in-out infinite alternate;
+        }
+
+        @keyframes fall {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+
+        @keyframes sway {
+            0% { transform: translateX(0px) rotate(0deg); }
+            100% { transform: translateX(30px) rotate(45deg); }
+        }
+
+        /* Card Animation */
+        .card-container {
+            position: relative;
+            z-index: 10;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Special Message Reveal Animation */
+        #special-message {
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        #special-message.revealed {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1.5rem;
+        }
+
+        /* Pulse button */
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(251, 113, 133, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(251, 113, 133, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(251, 113, 133, 0); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center py-10 px-4">
+
+    <!-- Main Card -->
+    <div class="card-container w-full max-w-lg bg-white/80 backdrop-blur-md shadow-2xl rounded-[2.5rem] p-8 md:p-12 text-center border border-pink-200">
+        
+        <!-- Header -->
+        <div class="mb-6">
+            <h2 class="text-rose-400 font-bold text-xl tracking-widest uppercase mb-2">Chúc Mừng Ngày 20/10</h2>
+            <div class="flex justify-center items-center gap-2">
+                <span class="text-2xl">💖</span>
+                <div class="h-[2px] w-16 bg-rose-300 rounded-full"></div>
+                <span class="text-2xl">💖</span>
+            </div>
+        </div>
+
+        <!-- Greeting -->
+        <h1 class="font-romantic text-5xl md:text-6xl text-rose-600 mb-6 leading-tight">
+            Gửi vợ yêu,<br>Trần Tú Linh
+        </h1>
+
+        <!-- Main Message -->
+        <div class="text-gray-700 text-lg leading-relaxed mb-8 space-y-4">
+            <p>
+                Nhân ngày Phụ nữ Việt Nam 20/10, anh chúc vợ yêu của anh luôn xinh đẹp rạng ngời, vui vẻ và hạnh phúc.
+            </p>
+            <p>
+                Cảm ơn em vì đã luôn đồng hành, thấu hiểu và chăm lo cho tổ ấm của chúng mình. Sự hiện diện của em là món quà tuyệt vời nhất mà cuộc đời đã dành tặng cho anh.
+            </p>
+        </div>
+
+        <!-- Interactive Button -->
+        <button id="reveal-btn" onclick="revealMessage()" class="btn-pulse bg-gradient-to-r from-rose-400 to-pink-500 hover:from-rose-500 hover:to-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105 active:scale-95 flex items-center justify-center gap-2 mx-auto">
+            <span>Nhấn vào đây nhé vợ yêu!</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+            </svg>
+        </button>
+
+        <!-- Hidden Special Message -->
+        <div id="special-message" class="bg-rose-50 rounded-2xl p-6 border border-rose-100">
+            <h3 class="font-romantic text-3xl text-rose-500 mb-3">Anh Yêu Em Rất Nhiều! ❤️</h3>
+            <p class="text-gray-700 mb-4">
+                Mong rằng mỗi ngày trôi qua, em đều cảm thấy được yêu thương và trân trọng. Chúc vợ một ngày 20/10 thật trọn vẹn và ý nghĩa.
+            </p>
+            <div class="mt-6 text-right">
+                <p class="text-sm text-gray-500 italic mb-1">Mãi yêu thương em,</p>
+                <p class="font-romantic text-3xl text-rose-600">Phạm Vĩ Phúc</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Animations and Interaction -->
+    <script>
+        // Function to reveal the hidden message
+        function revealMessage() {
+            const messageDiv = document.getElementById('special-message');
+            const btn = document.getElementById('reveal-btn');
+            
+            messageDiv.classList.add('revealed');
+            
+            // Change button appearance after clicking
+            btn.innerHTML = '<span>Yêu Vợ! ❤️</span>';
+            btn.classList.remove('btn-pulse');
+            btn.classList.add('opacity-70', 'cursor-default');
+            btn.disabled = true;
+
+            // Trigger extra heart burst
+            createHeartBurst();
+        }
+
+        // Function to create continuous falling hearts/petals
+        function createFallingElements() {
+            const elements = ['🌸', '💖', '✨', '💕', '🌷'];
+            const container = document.body;
+            const elementCount = 30; // Number of elements on screen
+
+            for (let i = 0; i < elementCount; i++) {
+                setTimeout(() => {
+                    const el = document.createElement('div');
+                    el.classList.add('falling-element');
+                    el.innerText = elements[Math.floor(Math.random() * elements.length)];
+                    
+                    // Randomize position, size, and animation duration
+                    el.style.left = Math.random() * 100 + 'vw';
+                    el.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
+                    
+                    const fallDuration = Math.random() * 5 + 5; // 5-10s
+                    const swayDuration = Math.random() * 2 + 1; // 1-3s
+                    el.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
+                    
+                    container.appendChild(el);
+
+                    // Re-create element when it falls out of screen to maintain the flow
+                    setInterval(() => {
+                        el.style.left = Math.random() * 100 + 'vw';
+                    }, fallDuration * 1000);
+
+                }, Math.random() * 5000); // Stagger initial creation
+            }
+        }
+
+        // Function to create a burst of hearts when the button is clicked
+        function createHeartBurst() {
+            for(let i=0; i<15; i++) {
+                const heart = document.createElement('div');
+                heart.innerText = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.zIndex = '50';
+                heart.style.left = '50%';
+                heart.style.top = '50%';
+                heart.style.transform = 'translate(-50%, -50%)';
+                heart.style.fontSize = '2rem';
+                heart.style.transition = 'all 1s ease-out';
+                heart.style.opacity = '1';
+                
+                document.body.appendChild(heart);
+
+                // Animate outward
+                setTimeout(() => {
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * 150 + 100; // 100px to 250px
+                    const x = Math.cos(angle) * distance;
+                    const y = Math.sin(angle) * distance;
+                    
+                    heart.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.5)`;
+                    heart.style.opacity = '0';
+                }, 10);
+
+                // Clean up
+                setTimeout(() => {
+                    heart.remove();
+                }, 1000);
+            }
+        }
+
+        // Initialize falling animation on load
+        window.onload = function() {
+            createFallingElements();
+        };
+    </script>
+</body>
+</html>
